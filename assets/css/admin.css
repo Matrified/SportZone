@@ -1,0 +1,121 @@
+/* =========================================================
+   SPORTZONE - ADMIN PANEL STYLES
+   Member 4 (Mohamed Tarek). Custom CSS only (no frameworks).
+   ========================================================= */
+
+.admin-body { background: var(--color-bg-light); }
+
+.admin-wrap { display: flex; min-height: 100vh; }
+
+/* ---------- Sidebar ---------- */
+.admin-sidebar {
+    width: 250px;
+    background: var(--color-secondary);
+    color: #cfd2e0;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    overflow-y: auto;
+    z-index: 200;
+}
+.admin-logo {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #fff;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.admin-logo span { color: var(--color-accent); }
+.admin-logo small { display: block; font-size: 0.7rem; font-weight: 500; color: #9aa0b5; letter-spacing: 1px; margin-top: 2px; }
+.admin-sidebar nav ul { padding: 14px 0; }
+.admin-sidebar nav a {
+    display: block;
+    padding: 12px 24px;
+    color: #cfd2e0;
+    font-size: 0.92rem;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: var(--transition);
+}
+.admin-sidebar nav a:hover { background: rgba(255,255,255,0.06); color: #fff; }
+.admin-sidebar nav a.active { background: rgba(230,57,70,0.15); color: #fff; border-left-color: var(--color-accent); }
+.admin-sidebar .divider { height: 1px; background: rgba(255,255,255,0.1); margin: 12px 24px; }
+
+/* ---------- Main ---------- */
+.admin-main { flex: 1; margin-left: 250px; display: flex; flex-direction: column; }
+.admin-topbar {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+}
+.admin-topbar h1 { font-size: 1.25rem; }
+.admin-menu-btn { display: none; background: none; font-size: 1.5rem; }
+.admin-user span { font-size: 0.9rem; font-weight: 600; color: #555; }
+.admin-content { padding: 28px; flex: 1; }
+
+/* ---------- Stat cards ---------- */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 24px; }
+.stat-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow);
+}
+.stat-icon {
+    width: 54px; height: 54px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+.stat-num { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
+.stat-label { color: #888; font-size: 0.85rem; }
+
+.admin-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* ---------- Admin search + filters ---------- */
+.admin-search { display: flex; gap: 8px; }
+.admin-search input {
+    padding: 9px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    min-width: 240px;
+    font-family: var(--font-body);
+}
+.admin-filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.admin-filter-tabs a {
+    padding: 8px 18px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
+}
+.admin-filter-tabs a:hover { border-color: var(--color-accent); }
+.admin-filter-tabs a.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+.status-form select { padding: 6px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-family: var(--font-body); font-size: 0.85rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .admin-grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .admin-sidebar { transform: translateX(-100%); transition: transform 0.25s; }
+    .admin-sidebar.open { transform: translateX(0); }
+    .admin-main { margin-left: 0; }
+    .admin-menu-btn { display: block; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .admin-search input { min-width: 0; width: 100%; }
+}

@@ -1,0 +1,40 @@
+-- SportZone sample data (OPTIONAL)
+-- Import this AFTER sportzone.sql if you want the admin dashboard, sales chart
+-- and order-history pages to already contain some data for screenshots/demo.
+-- It adds a few reviews and orders for the demo customer (user_id = 2).
+
+USE sportzone_db;
+
+-- some product reviews from the demo customer
+INSERT INTO reviews (product_id, user_id, rating, comment) VALUES
+(1, 2, 5, 'Really good match ball, keeps its shape well after a few games.'),
+(1, 2, 4, 'Solid ball for the price. Stitching feels strong.'),
+(17, 2, 5, 'Super comfortable for road runs, lightweight too.'),
+(17, 2, 4, 'Good cushioning but runs a bit small, I would size up.'),
+(9, 2, 5, 'Great grip on the outdoor court, happy with it.'),
+(33, 2, 4, 'Breathable and dries fast during training.');
+
+-- a few orders with items (statuses and dates vary so the chart shows data)
+INSERT INTO orders (user_id, full_name, phone, address, city, postal_code, payment_method, subtotal, shipping_fee, total, status, created_at) VALUES
+(2,'John Customer','+60 12-345 6789','12 Jalan Multimedia','Cyberjaya','63000','cod', 144.90, 10.00, 154.90, 'Delivered', NOW() - INTERVAL 5 DAY),
+(2,'John Customer','+60 12-345 6789','12 Jalan Multimedia','Cyberjaya','63000','card', 120.00, 10.00, 130.00, 'Processing', NOW() - INTERVAL 3 DAY),
+(2,'John Customer','+60 12-345 6789','12 Jalan Multimedia','Cyberjaya','63000','cod', 134.97, 10.00, 144.97, 'Pending', NOW() - INTERVAL 1 DAY),
+(2,'John Customer','+60 12-345 6789','12 Jalan Multimedia','Cyberjaya','63000','cod', 149.00, 10.00, 159.00, 'Pending', NOW());
+
+-- order 1 items (Match Football + Dri-Fit T-Shirt)
+INSERT INTO order_items (order_id, product_id, product_name, size, quantity, price) VALUES
+(1, 1, 'Match Football (Size 5)', NULL, 1, 89.90),
+(1, 33, 'Dri-Fit Training T-Shirt', 'L', 1, 55.00);
+
+-- order 2 items (Road Running Shoes)
+INSERT INTO order_items (order_id, product_id, product_name, size, quantity, price) VALUES
+(2, 17, 'Road Running Shoes', '9', 1, 120.00);
+
+-- order 3 items (Basketball + Performance Socks x3)
+INSERT INTO order_items (order_id, product_id, product_name, size, quantity, price) VALUES
+(3, 9, 'Indoor/Outdoor Basketball', NULL, 1, 75.00),
+(3, 19, 'Performance Socks (Pair)', 'M', 3, 19.99);
+
+-- order 4 items (Track Jacket)
+INSERT INTO order_items (order_id, product_id, product_name, size, quantity, price) VALUES
+(4, 34, 'Track Jacket', 'M', 1, 149.00);

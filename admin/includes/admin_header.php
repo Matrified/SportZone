@@ -28,6 +28,7 @@ $current = basename($_SERVER['PHP_SELF']);
                 <li><a href="<?= BASE_URL ?>admin/categories.php" class="<?= $current === 'categories.php' ? 'active' : '' ?>">🏷 Categories</a></li>
                 <li><a href="<?= BASE_URL ?>admin/orders.php" class="<?= in_array($current, ['orders.php','order-details.php']) ? 'active' : '' ?>">🧾 Orders</a></li>
                 <li><a href="<?= BASE_URL ?>admin/users.php" class="<?= $current === 'users.php' ? 'active' : '' ?>">👥 Users</a></li>
+                <li><a href="<?= BASE_URL ?>admin/messages.php" class="<?= $current === 'messages.php' ? 'active' : '' ?>">✉ Messages</a></li>
                 <li class="divider"></li>
                 <li><a href="<?= BASE_URL ?>index.php">🌐 View Store</a></li>
                 <li><a href="<?= BASE_URL ?>logout.php">⎋ Logout</a></li>

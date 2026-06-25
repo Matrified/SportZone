@@ -66,15 +66,37 @@ if (empty($items)) {
 }
 
 $shipping = SHIPPING_FEE;
-$total = $subtotal + $shipping;
+
+// validate promo code on the server (never trust the browser's number)
+$discount = 0;
+$discountCode = null;
+$promoInput = strtoupper(trim($_POST['promo_code'] ?? ''));
+if ($promoInput !== '') {
+    $pstmt = $conn->prepare("SELECT type, value FROM promo_codes WHERE code = ? AND active = 1");
+    $pstmt->bind_param("s", $promoInput);
+    $pstmt->execute();
+    $promo = $pstmt->get_result()->fetch_assoc();
+    $pstmt->close();
+    if ($promo) {
+        if ($promo['type'] === 'percent') {
+            $discount = $subtotal * ((float) $promo['value'] / 100);
+        } else {
+            $discount = (float) $promo['value'];
+        }
+        if ($discount > $subtotal) $discount = $subtotal;
+        $discountCode = $promoInput;
+    }
+}
+
+$total = $subtotal + $shipping - $discount;
 
 // ---- Transaction: create order, items, decrement stock, clear cart ----
 $conn->begin_transaction();
 try {
     $ostmt = $conn->prepare("INSERT INTO orders
-        (user_id, full_name, phone, address, city, postal_code, payment_method, subtotal, shipping_fee, total, status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
-    $ostmt->bind_param("issssssddd", $user_id, $full_name, $phone, $address, $city, $postal_code, $payment, $subtotal, $shipping, $total);
+        (user_id, full_name, phone, address, city, postal_code, payment_method, subtotal, shipping_fee, discount_code, discount_amount, total, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
+    $ostmt->bind_param("issssssddsdd", $user_id, $full_name, $phone, $address, $city, $postal_code, $payment, $subtotal, $shipping, $discountCode, $discount, $total);
     $ostmt->execute();
     $order_id = $conn->insert_id;
     $ostmt->close();

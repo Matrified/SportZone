@@ -542,6 +542,16 @@ button { font-family: var(--font-body); cursor: pointer; border: none; }
 .star-input { font-size: 1.8rem; color: #f5a623; cursor: pointer; user-select: none; }
 .star-input span { transition: transform 0.1s; }
 .star-input span:hover { transform: scale(1.15); }
+.verified-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-success);
+    background: #e6f6ec;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 6px;
+}
 
 /* ---------- Cart ---------- */
 .cart-layout { display: grid; grid-template-columns: 1fr 320px; gap: 28px; align-items: start; }
@@ -607,6 +617,33 @@ button { font-family: var(--font-body); cursor: pointer; border: none; }
 .review-box { background: var(--color-bg-light); padding: 18px; border-radius: var(--radius); }
 .review-line { padding: 6px 0; font-size: 0.92rem; border-bottom: 1px dashed var(--color-border); }
 .review-line:last-child { border-bottom: none; }
+
+/* promo code box on checkout */
+.promo-box { display: flex; gap: 8px; margin-bottom: 6px; }
+.promo-box input {
+    flex: 1; padding: 9px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+}
+.promo-msg { font-size: 0.8rem; margin-bottom: 10px; min-height: 1em; }
+.promo-msg.success { color: var(--color-success); }
+.promo-msg.error { color: var(--color-danger); }
+
+/* about + contact pages */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.about-box {
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 22px;
+}
+.about-box h3 { margin-bottom: 10px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; align-items: start; }
+.contact-info { line-height: 2; color: #444; margin-top: 10px; }
+@media (max-width: 768px) {
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+}
 
 /* ---------- Profile ---------- */
 .profile-layout { display: grid; grid-template-columns: 280px 1fr; gap: 28px; align-items: start; }

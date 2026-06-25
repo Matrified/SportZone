@@ -38,3 +38,8 @@ INSERT INTO order_items (order_id, product_id, product_name, size, quantity, pri
 -- order 4 items (Track Jacket)
 INSERT INTO order_items (order_id, product_id, product_name, size, quantity, price) VALUES
 (4, 34, 'Track Jacket', 'M', 1, 149.00);
+
+-- a couple of contact messages for the admin Messages page
+INSERT INTO contact_messages (name, email, message, created_at) VALUES
+('Aisha Rahman', 'aisha.r@example.com', 'Hi, do the running shoes come in half sizes? Thanks!', NOW() - INTERVAL 2 DAY),
+('Daniel Lim', 'daniel.lim@example.com', 'When will the adjustable dumbbell set be back in larger quantities?', NOW() - INTERVAL 1 DAY);

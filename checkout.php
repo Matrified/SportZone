@@ -64,6 +64,7 @@ include 'includes/header.php';
         <div class="checkout-layout">
             <form method="POST" action="place_order.php" id="checkoutForm" class="checkout-form" novalidate>
                 <?= csrf_field() ?>
+                <input type="hidden" name="promo_code" id="promoCode" value="">
 
                 <!-- STEP 1: Shipping -->
                 <div class="checkout-step active" id="step-1">
@@ -164,9 +165,19 @@ include 'includes/header.php';
                     </div>
                 <?php endforeach; ?>
                 <hr style="border:none; border-top:1px solid var(--color-border); margin:14px 0;">
+
+                <div class="promo-box">
+                    <input type="text" id="promoInput" placeholder="Promo code (e.g. SPORT10)">
+                    <button type="button" id="applyPromo" class="btn btn-dark btn-sm">Apply</button>
+                </div>
+                <div id="promoMsg" class="promo-msg"></div>
+
                 <div class="summary-row"><span>Subtotal</span><span><?= money($subtotal) ?></span></div>
                 <div class="summary-row"><span>Shipping</span><span><?= money($shipping) ?></span></div>
-                <div class="summary-row total"><span>Total</span><span><?= money($total) ?></span></div>
+                <div class="summary-row" id="discountRow" style="display:none; color:var(--color-success);">
+                    <span>Discount</span><span id="discountVal">- RM 0.00</span>
+                </div>
+                <div class="summary-row total"><span>Total</span><span id="summaryTotal"><?= money($total) ?></span></div>
             </aside>
         </div>
     </div>

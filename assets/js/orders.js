@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${itemsHtml}
                 <div class="summary-row" style="margin-top:10px;"><span>Subtotal</span><span>RM ${o.subtotal}</span></div>
                 <div class="summary-row"><span>Shipping</span><span>RM ${o.shipping}</span></div>
+                ${parseFloat(o.discount) > 0 ? `<div class="summary-row"><span>Discount${o.discount_code ? ' (' + escapeHtml(o.discount_code) + ')' : ''}</span><span>- RM ${o.discount}</span></div>` : ''}
                 <div class="summary-row total"><span>Total</span><span>RM ${o.total}</span></div>
             `;
             modal.classList.add('open');

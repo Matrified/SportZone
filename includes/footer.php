@@ -18,16 +18,16 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="<?= BASE_URL ?>group.php">Our Team</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="<?= BASE_URL ?>about.php">About Us</a></li>
+                    <li><a href="<?= BASE_URL ?>contact.php">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Support</h4>
                 <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="<?= BASE_URL ?>contact.php">Help &amp; Contact</a></li>
+                    <li><a href="<?= BASE_URL ?>about.php">About SportZone</a></li>
+                    <li><a href="<?= BASE_URL ?>products.php">Shop All</a></li>
                 </ul>
             </div>
         </div>

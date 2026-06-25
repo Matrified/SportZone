@@ -51,6 +51,12 @@ include 'includes/header.php';
                 <span style="color:#888;">Payment Method</span>
                 <span><?= $order['payment_method'] === 'cod' ? 'Cash on Delivery' : 'Credit/Debit Card' ?></span>
             </div>
+            <?php if ($order['discount_amount'] > 0): ?>
+            <div class="flex-between" style="margin-bottom:10px;">
+                <span style="color:#888;">Discount<?= $order['discount_code'] ? ' (' . sanitize($order['discount_code']) . ')' : '' ?></span>
+                <span style="color:var(--color-success);">- <?= money($order['discount_amount']) ?></span>
+            </div>
+            <?php endif; ?>
             <div class="flex-between" style="margin-bottom:10px;">
                 <span style="color:#888;">Total Amount</span>
                 <strong style="color:var(--color-accent);"><?= money($order['total']) ?></strong>

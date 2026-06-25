@@ -86,6 +86,9 @@ include __DIR__ . '/includes/admin_header.php';
     <div style="max-width:300px; margin-left:auto; margin-top:16px;">
         <div class="summary-row"><span>Subtotal</span><span><?= money($order['subtotal']) ?></span></div>
         <div class="summary-row"><span>Shipping</span><span><?= money($order['shipping_fee']) ?></span></div>
+        <?php if ($order['discount_amount'] > 0): ?>
+            <div class="summary-row"><span>Discount<?= $order['discount_code'] ? ' (' . sanitize($order['discount_code']) . ')' : '' ?></span><span>- <?= money($order['discount_amount']) ?></span></div>
+        <?php endif; ?>
         <div class="summary-row total"><span>Total</span><span><?= money($order['total']) ?></span></div>
     </div>
 </div>

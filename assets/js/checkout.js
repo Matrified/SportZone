@@ -75,6 +75,45 @@ document.addEventListener('DOMContentLoaded', function () {
         return div.innerHTML;
     }
 
+    // ---------- Promo code ----------
+    const applyBtn = document.getElementById('applyPromo');
+    if (applyBtn) {
+        applyBtn.addEventListener('click', function () {
+            const code = document.getElementById('promoInput').value.trim();
+            const msg = document.getElementById('promoMsg');
+            const token = (document.querySelector('meta[name="csrf-token"]') || {}).content || '';
+
+            if (code === '') { msg.textContent = 'Please enter a code.'; msg.className = 'promo-msg error'; return; }
+
+            const body = new URLSearchParams();
+            body.append('code', code);
+            body.append('csrf_token', token);
+
+            fetch((window.SZ_BASE || '/SportZone/') + 'apply_promo.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: body.toString()
+            })
+            .then(r => r.json())
+            .then(function (data) {
+                if (!data.ok) {
+                    msg.textContent = data.msg;
+                    msg.className = 'promo-msg error';
+                    document.getElementById('promoCode').value = '';
+                    document.getElementById('discountRow').style.display = 'none';
+                    return;
+                }
+                msg.textContent = data.msg;
+                msg.className = 'promo-msg success';
+                document.getElementById('promoCode').value = data.code;
+                document.getElementById('discountVal').textContent = '- RM ' + data.discount;
+                document.getElementById('discountRow').style.display = 'flex';
+                document.getElementById('summaryTotal').textContent = 'RM ' + data.total;
+            })
+            .catch(() => { msg.textContent = 'Could not apply code.'; msg.className = 'promo-msg error'; });
+        });
+    }
+
     // ---------- Final submit guard + loading state ----------
     form.addEventListener('submit', function (e) {
         if (!validateStep1()) {

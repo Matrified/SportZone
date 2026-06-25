@@ -88,9 +88,18 @@ $flash = get_flash();
                                         'payment' => $o['payment_method'] === 'cod' ? 'Cash on Delivery' : 'Credit/Debit Card',
                                         'subtotal' => number_format($o['subtotal'], 2),
                                         'shipping' => number_format($o['shipping_fee'], 2),
+                                        'discount' => number_format($o['discount_amount'], 2),
+                                        'discount_code' => $o['discount_code'],
                                         'total' => number_format($o['total'], 2),
                                         'items' => $itemRows
                                     ]), ENT_QUOTES, 'UTF-8') ?>'>View</button>
+                                <?php if ($o['status'] === 'Pending'): ?>
+                                    <form method="POST" action="cancel_order.php" style="display:inline;" onsubmit="return confirm('Cancel this order?')">
+                                        <?= csrf_field() ?>
+                                        <input type="hidden" name="order_id" value="<?= $o['order_id'] ?>">
+                                        <button type="submit" class="btn btn-sm" style="background:var(--color-danger); color:#fff;">Cancel</button>
+                                    </form>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endwhile; ?>

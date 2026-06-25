@@ -23,7 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'add_r
     } else {
         $rating  = (int) ($_POST['rating'] ?? 0);
         $comment = trim($_POST['comment'] ?? '');
-        if ($rating < 1 || $rating > 5) {
+        if (!has_purchased($conn, $_SESSION['user_id'], $id)) {
+            $reviewError = 'Only customers who have purchased this product can review it.';
+        } elseif (has_reviewed($conn, $_SESSION['user_id'], $id)) {
+            $reviewError = 'You have already reviewed this product.';
+        } elseif ($rating < 1 || $rating > 5) {
             $reviewError = 'Please select a star rating.';
         } elseif ($comment === '') {
             $reviewError = 'Please write a short comment.';
@@ -189,7 +193,12 @@ $flash = get_flash();
                         <?php while ($r = $reviews->fetch_assoc()): ?>
                             <div class="review-item">
                                 <div class="flex-between">
-                                    <strong><?= sanitize($r['full_name']) ?></strong>
+                                    <strong>
+                                        <?= sanitize($r['full_name']) ?>
+                                        <?php if (has_purchased($conn, $r['user_id'], $id)): ?>
+                                            <span class="verified-badge">✓ Verified Purchase</span>
+                                        <?php endif; ?>
+                                    </strong>
                                     <span style="color:#999; font-size:0.8rem;"><?= date('d M Y', strtotime($r['created_at'])) ?></span>
                                 </div>
                                 <div style="color:#f5a623;"><?= render_stars($r['rating']) ?></div>
@@ -202,7 +211,13 @@ $flash = get_flash();
                 <!-- Add review form -->
                 <div class="review-form-wrap">
                     <h4 style="margin-bottom:12px;">Write a Review</h4>
-                    <?php if (is_logged_in()): ?>
+                    <?php if (!is_logged_in()): ?>
+                        <p style="color:#666;"><a href="login.php" style="color:var(--color-accent); font-weight:600;">Log in</a> to write a review.</p>
+                    <?php elseif (!has_purchased($conn, $_SESSION['user_id'], $id)): ?>
+                        <p style="color:#666;">Only customers who have purchased this product can review it.</p>
+                    <?php elseif (has_reviewed($conn, $_SESSION['user_id'], $id)): ?>
+                        <p style="color:#666;">You have already reviewed this product. Thank you!</p>
+                    <?php else: ?>
                         <form method="POST" action="product-details.php?id=<?= $id ?>" id="reviewForm">
                             <?= csrf_field() ?>
                             <input type="hidden" name="action" value="add_review">
@@ -226,8 +241,6 @@ $flash = get_flash();
 
                             <button type="submit" class="btn btn-primary">Submit Review</button>
                         </form>
-                    <?php else: ?>
-                        <p style="color:#666;"><a href="login.php" style="color:var(--color-accent); font-weight:600;">Log in</a> to write a review.</p>
                     <?php endif; ?>
                 </div>
             </div>

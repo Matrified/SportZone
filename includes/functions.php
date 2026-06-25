@@ -160,3 +160,25 @@ function get_wishlist_count($conn) {
     $stmt->close();
     return $c;
 }
+
+// has this user actually bought this product? (used for verified-purchase reviews)
+function has_purchased($conn, $user_id, $product_id) {
+    $stmt = $conn->prepare("SELECT 1 FROM order_items oi
+                            JOIN orders o ON oi.order_id = o.order_id
+                            WHERE o.user_id = ? AND oi.product_id = ? LIMIT 1");
+    $stmt->bind_param("ii", $user_id, $product_id);
+    $stmt->execute();
+    $found = $stmt->get_result()->num_rows > 0;
+    $stmt->close();
+    return $found;
+}
+
+// has this user already reviewed this product?
+function has_reviewed($conn, $user_id, $product_id) {
+    $stmt = $conn->prepare("SELECT 1 FROM reviews WHERE user_id = ? AND product_id = ? LIMIT 1");
+    $stmt->bind_param("ii", $user_id, $product_id);
+    $stmt->execute();
+    $found = $stmt->get_result()->num_rows > 0;
+    $stmt->close();
+    return $found;
+}

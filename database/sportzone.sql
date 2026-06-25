@@ -12,6 +12,8 @@ DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS wishlist;
 DROP TABLE IF EXISTS cart;
 DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS promo_codes;
+DROP TABLE IF EXISTS contact_messages;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS users;
@@ -100,6 +102,8 @@ CREATE TABLE orders (
     payment_method  ENUM('cod','card') NOT NULL DEFAULT 'cod',
     subtotal        DECIMAL(10,2) NOT NULL,
     shipping_fee    DECIMAL(10,2) NOT NULL DEFAULT 0,
+    discount_code   VARCHAR(30) DEFAULT NULL,
+    discount_amount DECIMAL(10,2) NOT NULL DEFAULT 0,
     total           DECIMAL(10,2) NOT NULL,
     status          ENUM('Pending','Processing','Delivered','Cancelled') NOT NULL DEFAULT 'Pending',
     created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -117,6 +121,24 @@ CREATE TABLE order_items (
     price          DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (order_id)   REFERENCES orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+
+-- discount / promo codes used at checkout
+CREATE TABLE promo_codes (
+    promo_id   INT AUTO_INCREMENT PRIMARY KEY,
+    code       VARCHAR(30) NOT NULL UNIQUE,
+    type       ENUM('percent','fixed') NOT NULL DEFAULT 'percent',
+    value      DECIMAL(10,2) NOT NULL,
+    active     TINYINT(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB;
+
+-- messages submitted through the Contact page
+CREATE TABLE contact_messages (
+    message_id INT AUTO_INCREMENT PRIMARY KEY,
+    name       VARCHAR(100) NOT NULL,
+    email      VARCHAR(100) NOT NULL,
+    message    TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
 -- ----------------------------------------------------------
@@ -184,3 +206,10 @@ INSERT INTO products (category_id, name, description, brand, price, stock, sizes
 (5,'Compression Base Layer','Tight-fit long sleeve base layer that keeps muscles warm.','Nike',49.00,50,'S,M,L,XL','sportswear-base-layer.jpg'),
 (5,'Sports Socks (3-Pack)','Cushioned crew socks in a pack of three pairs.','Adidas',22.00,100,NULL,'sportswear-socks.jpg'),
 (5,'Windbreaker Jacket','Packable windbreaker with a hood and zip pockets.','Puma',89.00,33,'S,M,L,XL','sportswear-windbreaker.jpg');
+
+
+-- sample promo codes
+INSERT INTO promo_codes (code, type, value, active) VALUES
+('SPORT10',  'percent', 10.00, 1),
+('SAVE20',   'percent', 20.00, 1),
+('WELCOME5', 'fixed',    5.00, 1);

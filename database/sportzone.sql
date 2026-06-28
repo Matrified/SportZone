@@ -159,53 +159,33 @@ INSERT INTO categories (name, slug, icon) VALUES
 ('Gym',        'gym',        '🏋'),
 ('Sportswear', 'sportswear', '👕');
 
--- products (image column holds the intended filename - see docs/IMAGE_GUIDE.md)
+-- products (image column points to the SVG product tile in assets/images/products/)
 INSERT INTO products (category_id, name, description, brand, price, stock, sizes, image) VALUES
 -- Football
-(1,'Match Football (Size 5)','Official size 5 match ball with a durable stitched synthetic leather casing. Good shape retention and consistent flight.','Nike',89.90,40,NULL,'football-match-ball.jpg'),
-(1,'Training Football (Size 4)','Hard-wearing training ball for everyday practice sessions on grass or turf.','Adidas',45.00,55,NULL,'football-training-ball.jpg'),
+(1,'Match Football','Official size 5 match ball with a durable stitched casing and good shape retention.','Nike',89.90,40,NULL,'football-ball.jpg'),
 (1,'Shin Guards','Lightweight shin guards with a hard outer shell and ankle protection.','Adidas',35.00,60,'S,M,L','football-shin-guards.jpg'),
-(1,'Goalkeeper Gloves','Latex palm goalkeeper gloves with finger support and a snug wrist strap.','Nike',65.00,30,'8,9,10','football-gk-gloves.jpg'),
-(1,'Football Boots (Firm Ground)','Firm ground boots with moulded studs for grip on natural grass pitches.','Puma',159.00,28,'7,8,9,10,11','football-boots.jpg'),
-(1,'Team Jersey','Breathable team jersey with moisture-wicking fabric. Fits true to size.','Adidas',75.00,50,'S,M,L,XL','football-jersey.jpg'),
-(1,'Ball Pump with Needles','Dual-action hand pump that comes with two spare inflation needles.','Mitre',15.00,90,NULL,'football-pump.jpg'),
-(1,'Training Cones (Set of 20)','Set of 20 flexible marker cones for drills and agility training.','Nike',22.00,70,NULL,'football-cones.jpg'),
+(1,'Goalkeeper Gloves','Latex palm goalkeeper gloves with finger support and a snug wrist strap.','Nike',65.00,30,'8,9,10','football-gloves.jpg'),
+(1,'Football Boots','Firm ground boots with moulded studs for grip on natural grass pitches.','Puma',159.00,28,'7,8,9,10,11','football-boots.jpg'),
 -- Basketball
-(2,'Indoor/Outdoor Basketball','Composite leather basketball that performs well on both indoor and outdoor courts.','Spalding',75.00,35,NULL,'basketball-ball.jpg'),
-(2,'High-Top Basketball Shoes','High-top shoes with ankle support and cushioned soles for quick movements.','Nike',349.00,25,'7,8,9,10,11','basketball-shoes.jpg'),
-(2,'Basketball Jersey','Loose-fit mesh jersey that keeps you cool during a game.','Under Armour',69.00,40,'S,M,L,XL','basketball-jersey.jpg'),
-(2,'Portable Basketball Hoop','Height-adjustable portable hoop with a weighted base. Easy to assemble.','Spalding',299.00,12,NULL,'basketball-hoop.jpg'),
-(2,'Compression Arm Sleeve','Compression sleeve that helps with circulation and protects the arm.','Nike',19.00,80,'S,M,L','basketball-arm-sleeve.jpg'),
-(2,'Basketball Shorts','Lightweight shorts with side pockets and an elastic drawstring waist.','Adidas',39.00,60,'S,M,L,XL','basketball-shorts.jpg'),
-(2,'Knee Pads (Pair)','Padded knee sleeves that cushion against falls on the court.','McDavid',29.00,45,'S,M,L','basketball-knee-pads.jpg'),
-(2,'Ball Pump','Compact pump for keeping your basketball at the right pressure.','Spalding',14.00,100,NULL,'basketball-pump.jpg'),
+(2,'Basketball','Composite leather basketball that performs well on indoor and outdoor courts.','Spalding',75.00,35,NULL,'basketball-ball.jpg'),
+(2,'High-Top Shoes','High-top basketball shoes with ankle support and cushioned soles.','Nike',349.00,25,'7,8,9,10,11','basketball-shoes.jpg'),
+(2,'Basketball Jersey','Loose-fit breathable mesh jersey that keeps you cool during a game.','Under Armour',69.00,40,'S,M,L,XL','basketball-jersey.jpg'),
+(2,'Knee Pads','Padded knee sleeves that cushion against falls on the court.','McDavid',29.00,45,'S,M,L','basketball-knee-pads.jpg'),
 -- Running
-(3,'Road Running Shoes','Breathable mesh upper with responsive foam cushioning for road running.','Adidas',120.00,50,'7,8,9,10,11,12','running-shoes-road.jpg'),
-(3,'Trail Running Shoes','Grippy outsole and protective toe cap built for off-road trails.','Salomon',145.00,30,'7,8,9,10,11','running-shoes-trail.jpg'),
-(3,'Performance Socks (Pair)','Moisture-wicking compression socks that reduce blisters on long runs.','Puma',19.99,100,'S,M,L','running-socks.jpg'),
-(3,'Running Shorts','Lightweight shorts with a built-in liner and a zip pocket.','Nike',35.00,70,'S,M,L,XL','running-shorts.jpg'),
-(3,'GPS Running Watch','Tracks pace, distance and heart rate with built-in GPS.','Garmin',249.00,18,NULL,'running-watch.jpg'),
-(3,'Hydration Belt','Adjustable belt with two water bottles and a small storage pouch.','Nathan',39.00,40,NULL,'running-hydration-belt.jpg'),
-(3,'Reflective Vest','High-visibility reflective vest for running safely in low light.','Nike',29.00,55,'S,M,L,XL','running-vest.jpg'),
+(3,'Running Shoes','Breathable mesh running shoes with responsive foam cushioning.','Adidas',120.00,50,'7,8,9,10,11,12','running-shoes.jpg'),
+(3,'Running Socks','Moisture-wicking compression running socks (pair) that reduce blisters.','Puma',19.99,100,'S,M,L','running-socks.jpg'),
+(3,'GPS Sports Watch','Tracks pace, distance and heart rate with built-in GPS.','Garmin',249.00,18,NULL,'running-watch.jpg'),
 (3,'Compression Tights','Full-length compression tights for support and warmth.','Under Armour',59.00,48,'S,M,L,XL','running-tights.jpg'),
 -- Gym
 (4,'Adjustable Dumbbell Set','Adjustable dumbbell pair, 2kg to 20kg per side. Space-saving design.','Reebok',450.00,15,NULL,'gym-dumbbells.jpg'),
-(4,'Yoga Mat (Premium)','Extra-thick non-slip mat with a carrying strap included.','Reebok',45.00,70,NULL,'gym-yoga-mat.jpg'),
-(4,'Resistance Bands (Set of 5)','Five looped bands at different resistance levels for full-body workouts.','Fit Simplify',25.00,90,NULL,'gym-resistance-bands.jpg'),
+(4,'Yoga Mat','Extra-thick non-slip yoga mat with a carrying strap included.','Reebok',45.00,70,NULL,'gym-yoga-mat.jpg'),
 (4,'Kettlebell 12kg','Cast iron kettlebell with a wide handle and flat base.','Reebok',60.00,35,NULL,'gym-kettlebell.jpg'),
-(4,'Skipping Rope','Adjustable steel-wire skipping rope with foam grips.','Nike',18.00,100,NULL,'gym-skipping-rope.jpg'),
-(4,'Weightlifting Gloves','Padded gloves with wrist support for lifting.','Under Armour',27.00,65,'S,M,L,XL','gym-gloves.jpg'),
-(4,'Foam Roller','High-density foam roller for muscle recovery and stretching.','TriggerPoint',35.00,50,NULL,'gym-foam-roller.jpg'),
-(4,'Gym Duffel Bag','Roomy duffel bag with a separate shoe compartment.','Adidas',49.00,40,NULL,'gym-duffel-bag.jpg'),
+(4,'Resistance Bands','Set of five looped bands at different resistance levels for full-body workouts.','Fit Simplify',25.00,90,NULL,'gym-bands.jpg'),
 -- Sportswear
-(5,'Dri-Fit Training T-Shirt','Quick-dry training tee with breathable side panels.','Nike',55.00,80,'S,M,L,XL','sportswear-tshirt.jpg'),
-(5,'Track Jacket','Full-zip track jacket that is lightweight and water-resistant.','Adidas',149.00,30,'S,M,L,XL','sportswear-track-jacket.jpg'),
-(5,'Training Joggers','Tapered joggers with zip pockets and an elastic cuff.','Puma',65.00,55,'S,M,L,XL','sportswear-joggers.jpg'),
-(5,'Sports Cap','Adjustable cap with a sweat-wicking inner band.','Nike',25.00,90,NULL,'sportswear-cap.jpg'),
+(5,'Training T-Shirt','Quick-dry training tee with breathable side panels.','Nike',55.00,80,'S,M,L,XL','sportswear-tshirt.jpg'),
+(5,'Track Jacket','Full-zip track jacket that is lightweight and water-resistant.','Adidas',149.00,30,'S,M,L,XL','sportswear-jacket.jpg'),
 (5,'Hoodie','Soft fleece-lined hoodie for warm-ups and casual wear.','Under Armour',79.00,45,'S,M,L,XL','sportswear-hoodie.jpg'),
-(5,'Compression Base Layer','Tight-fit long sleeve base layer that keeps muscles warm.','Nike',49.00,50,'S,M,L,XL','sportswear-base-layer.jpg'),
-(5,'Sports Socks (3-Pack)','Cushioned crew socks in a pack of three pairs.','Adidas',22.00,100,NULL,'sportswear-socks.jpg'),
-(5,'Windbreaker Jacket','Packable windbreaker with a hood and zip pockets.','Puma',89.00,33,'S,M,L,XL','sportswear-windbreaker.jpg');
+(5,'Sports Cap','Adjustable cap with a sweat-wicking inner band.','Nike',25.00,90,NULL,'sportswear-cap.jpg');
 
 
 -- sample promo codes

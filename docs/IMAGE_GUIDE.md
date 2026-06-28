@@ -1,89 +1,26 @@
-# Image Guide — what to put where
+# Image Guide
 
-Most products already have a real Creative-Commons photo (see `IMAGE_CREDITS.md`). A few are
-still neutral "Product image" placeholders. To set or replace any product image, save a photo
-with the **exact filename** below into `assets/images/products/` (or upload it via
-**Admin → Products → Edit**).
+The store uses a **consistent set of branded SVG product tiles** (one per product) in
+`assets/images/products/`. Each tile shows the category, product name and brand in the
+SportZone style, so the catalogue looks clean and uniform out of the box — no external
+downloads needed and it works fully offline.
 
-- Product photos go in: `assets/images/products/`
-- The home banner goes in: `assets/images/` (`hero.jpg`)
-- Recommended product image size: **square, about 600×600px**, `.jpg`
-- Until a file is added, the site shows a neutral "Product image" placeholder, so nothing breaks.
+## Replacing a tile with a real photo (optional)
+If you'd rather use a real product photo for any item:
+1. Save your photo (square, ~600×600px) into `assets/images/products/`.
+2. Either give it the **same filename** as the tile it replaces (e.g. `running-shoes.svg` →
+   keep using that name but as an image is awkward, so instead) update the product's `image`
+   field to your new filename via **Admin → Products → Edit** (the upload handles this
+   automatically), or in the database.
 
-Still placeholders (add a photo to fill these): `football-pump.jpg`, `gym-skipping-rope.jpg`,
-`running-socks.jpg`, `running-tights.jpg`, `running-vest.jpg`, `running-hydration-belt.jpg`,
-`basketball-shorts.jpg`, `sportswear-track-jacket.jpg`, `sportswear-socks.jpg`,
-`sportswear-base-layer.jpg`.
+The simplest way is **Admin → Products → Edit → Product Image**, which uploads the file and
+points the product at it for you.
 
----
+## Tile filenames
+`football-ball.svg`, `football-shin-guards.svg`, `football-gloves.svg`, `football-boots.svg`,
+`basketball-ball.svg`, `basketball-shoes.svg`, `basketball-jersey.svg`, `basketball-knee-pads.svg`,
+`running-shoes.svg`, `running-socks.svg`, `running-watch.svg`, `running-tights.svg`,
+`gym-dumbbells.svg`, `gym-yoga-mat.svg`, `gym-kettlebell.svg`, `gym-bands.svg`,
+`sportswear-tshirt.svg`, `sportswear-jacket.svg`, `sportswear-hoodie.svg`, `sportswear-cap.svg`
 
-## Home banner
-| Filename | Put it here | Suggested photo (search term) |
-|---|---|---|
-| `hero.jpg` | `assets/images/` | Wide action shot of athletes training / a stadium. Landscape ~1200×500px. |
-
-## Football (`assets/images/products/`)
-| Filename | Suggested photo |
-|---|---|
-| `football-match-ball.jpg` | A white/black football (soccer ball) on grass |
-| `football-training-ball.jpg` | A football on a training pitch |
-| `football-shin-guards.jpg` | Pair of football shin guards |
-| `football-gk-gloves.jpg` | Goalkeeper gloves |
-| `football-boots.jpg` | Football boots / soccer cleats |
-| `football-jersey.jpg` | Plain football team jersey |
-| `football-pump.jpg` | Hand ball pump |
-| `football-cones.jpg` | Stack of training marker cones |
-
-## Basketball (`assets/images/products/`)
-| Filename | Suggested photo |
-|---|---|
-| `basketball-ball.jpg` | An orange basketball |
-| `basketball-shoes.jpg` | High-top basketball shoes |
-| `basketball-jersey.jpg` | Basketball jersey/singlet |
-| `basketball-hoop.jpg` | Portable basketball hoop |
-| `basketball-arm-sleeve.jpg` | Compression arm sleeve |
-| `basketball-shorts.jpg` | Basketball shorts |
-| `basketball-knee-pads.jpg` | Knee pads / sleeves |
-| `basketball-pump.jpg` | Small ball pump |
-
-## Running (`assets/images/products/`)
-| Filename | Suggested photo |
-|---|---|
-| `running-shoes-road.jpg` | Road running shoes |
-| `running-shoes-trail.jpg` | Trail running shoes |
-| `running-socks.jpg` | Running socks |
-| `running-shorts.jpg` | Running shorts |
-| `running-watch.jpg` | GPS sports watch |
-| `running-hydration-belt.jpg` | Running hydration belt with bottles |
-| `running-vest.jpg` | Reflective hi-vis running vest |
-| `running-tights.jpg` | Compression running tights |
-
-## Gym (`assets/images/products/`)
-| Filename | Suggested photo |
-|---|---|
-| `gym-dumbbells.jpg` | Adjustable dumbbell set |
-| `gym-yoga-mat.jpg` | Rolled yoga mat |
-| `gym-resistance-bands.jpg` | Resistance bands set |
-| `gym-kettlebell.jpg` | A kettlebell |
-| `gym-skipping-rope.jpg` | Skipping / jump rope |
-| `gym-gloves.jpg` | Weightlifting gloves |
-| `gym-foam-roller.jpg` | Foam roller |
-| `gym-duffel-bag.jpg` | Gym duffel bag |
-
-## Sportswear (`assets/images/products/`)
-| Filename | Suggested photo |
-|---|---|
-| `sportswear-tshirt.jpg` | Plain sports training t-shirt |
-| `sportswear-track-jacket.jpg` | Track jacket |
-| `sportswear-joggers.jpg` | Jogger pants |
-| `sportswear-cap.jpg` | Sports cap |
-| `sportswear-hoodie.jpg` | Plain hoodie |
-| `sportswear-base-layer.jpg` | Compression base layer top |
-| `sportswear-socks.jpg` | Sports socks |
-| `sportswear-windbreaker.jpg` | Windbreaker jacket |
-
----
-
-### Replacing images later from the Admin panel
-You can also add/replace a product image through **Admin → Products → Edit → Product Image**.
-Uploaded images are saved automatically into `assets/images/products/`.
+The home-page hero uses a clean dark banner (no image file required).

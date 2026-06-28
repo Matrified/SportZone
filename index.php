@@ -19,8 +19,6 @@ $wishIds = get_wishlist_ids($conn);
 <section class="container home-top">
     <!-- hero banner -->
     <div class="hero-banner">
-        <img src="assets/images/hero.jpg" alt="" class="hero-bg"
-             onerror="this.style.display='none';">
         <div class="hero-text">
             <h1>Gear up for game day</h1>
             <p>Equipment, footwear and apparel for football, basketball, running, gym and more.</p>

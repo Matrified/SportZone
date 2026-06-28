@@ -52,7 +52,7 @@ all styling is custom CSS, per the assignment constraints.
 3. **Create the database**
    - Open `http://localhost/phpmyadmin`
    - Click **Import → Choose File →** `database/sportzone.sql` → **Go**
-   - This creates `sportzone_db` with all tables, 40 sample products,
+   - This creates `sportzone_db` with all tables, 20 sample products,
      and the **admin + customer accounts** (passwords already hashed).
 
 4. *(Optional — recommended for the demo)* **Add sample orders & reviews**
@@ -90,7 +90,7 @@ SportZone/
 ├── assets/
 │   ├── css/  style.css, admin.css
 │   ├── js/   main.js, auth.js, shop.js, product.js, checkout.js, orders.js, admin.js
-│   └── images/  placeholder.svg + products/ (10 themed product images)
+│   └── images/  placeholder.svg + icons/ + products/ (20 branded SVG tiles)
 ├── database/
 │   ├── sportzone.sql            # schema + products + categories + accounts
 │   └── sample_data.sql          # optional: sample orders & reviews for the demo
@@ -108,9 +108,10 @@ SportZone/
 ```
 
 ## 🖼️ Product Images
-All images on the site start as **placeholders**. See **`docs/IMAGE_GUIDE.md`** for the exact
-filename and a suggested photo for each product (and the home banner). Drop the files into
-`assets/images/products/` (or upload via **Admin → Products → Edit**) and they appear instantly.
+The store ships with a consistent set of **branded SVG product tiles** (in
+`assets/images/products/`) so the catalogue looks clean and uniform with no external
+downloads. To use a real photo for any product instead, upload it via
+**Admin → Products → Edit** (see `docs/IMAGE_GUIDE.md`).
 
 ## 👥 Team & Roles (Group 16)
 | Name | Student ID | Role | Pages | Features |

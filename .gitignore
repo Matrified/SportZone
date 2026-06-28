@@ -6,3 +6,6 @@ Desktop.ini
 
 # don't ignore the placeholder/icon folders
 !assets/images/
+
+# Office temp lock files
+~$*

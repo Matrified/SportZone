@@ -28,28 +28,28 @@ $cart_count = get_cart_count($conn);
 
         <form class="search-bar" action="<?= BASE_URL ?>products.php" method="GET">
             <input type="text" name="search" placeholder="Search for products..." value="<?= isset($_GET['search']) ? sanitize($_GET['search']) : '' ?>">
-            <button type="submit" title="Search"><?= icon('search.png', '🔍', 'Search') ?></button>
+            <button type="submit" title="Search"><?= icon('search.svg', '🔍', 'Search') ?></button>
         </form>
 
         <div class="nav-icons">
             <?php if (is_logged_in()): ?>
                 <a href="<?= BASE_URL ?>wishlist.php" class="icon-link" title="Wishlist">
-                    <?= icon('heart.png', '♡', 'Wishlist') ?>
+                    <?= icon('heart.svg', '♡', 'Wishlist') ?>
                     <?php $wc = get_wishlist_count($conn); ?>
                     <span class="cart-badge" id="wishBadge" style="<?= $wc > 0 ? '' : 'display:none;' ?>"><?= $wc ?></span>
                 </a>
             <?php endif; ?>
             <a href="<?= BASE_URL ?>cart.php" class="icon-link" title="Cart">
-                <?= icon('cart.png', '🛒', 'Cart') ?>
+                <?= icon('cart.svg', '🛒', 'Cart') ?>
                 <?php if ($cart_count > 0): ?>
                     <span class="cart-badge"><?= $cart_count ?></span>
                 <?php endif; ?>
             </a>
             <?php if (is_logged_in()): ?>
-                <a href="<?= BASE_URL ?>profile.php" class="icon-link" title="My Account"><?= icon('user.png', '👤', 'Account') ?></a>
-                <a href="<?= BASE_URL ?>logout.php" class="icon-link" title="Logout"><?= icon('logout.png', '⎋', 'Logout') ?></a>
+                <a href="<?= BASE_URL ?>profile.php" class="icon-link" title="My Account"><?= icon('user.svg', '👤', 'Account') ?></a>
+                <a href="<?= BASE_URL ?>logout.php" class="icon-link" title="Logout"><?= icon('logout.svg', '⎋', 'Logout') ?></a>
             <?php else: ?>
-                <a href="<?= BASE_URL ?>login.php" class="icon-link" title="Login"><?= icon('user.png', '👤', 'Login') ?></a>
+                <a href="<?= BASE_URL ?>login.php" class="icon-link" title="Login"><?= icon('user.svg', '👤', 'Login') ?></a>
             <?php endif; ?>
         </div>
     </div>

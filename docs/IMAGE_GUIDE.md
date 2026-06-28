@@ -1,16 +1,19 @@
 # Image Guide — what to put where
 
-Every image on the site is currently a placeholder. To make the store look finished,
-download royalty-free photos (e.g. from **unsplash.com**, **pexels.com**, or **pixabay.com** —
-search the suggested term) and save them with the **exact filename** listed below.
+Most products already have a real Creative-Commons photo (see `IMAGE_CREDITS.md`). A few are
+still neutral "Product image" placeholders. To set or replace any product image, save a photo
+with the **exact filename** below into `assets/images/products/` (or upload it via
+**Admin → Products → Edit**).
 
 - Product photos go in: `assets/images/products/`
-- The home banner goes in: `assets/images/`
+- The home banner goes in: `assets/images/` (`hero.jpg`)
 - Recommended product image size: **square, about 600×600px**, `.jpg`
 - Until a file is added, the site shows a neutral "Product image" placeholder, so nothing breaks.
 
-> Tip: a quick way to fill all of them is to search each term, save the photo, and rename it
-> to the filename in the table.
+Still placeholders (add a photo to fill these): `football-pump.jpg`, `gym-skipping-rope.jpg`,
+`running-socks.jpg`, `running-tights.jpg`, `running-vest.jpg`, `running-hydration-belt.jpg`,
+`basketball-shorts.jpg`, `sportswear-track-jacket.jpg`, `sportswear-socks.jpg`,
+`sportswear-base-layer.jpg`.
 
 ---
 

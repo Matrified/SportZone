@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2B2D42" stroke-width="2" stroke-linecap="round">
+  <circle cx="20" cy="20" r="15"/>
+  <path d="M5 20h30M20 5v30"/>
+  <path d="M9 9c5 4 5 18 0 22M31 9c-5 4-5 18 0 22"/>
+</svg>

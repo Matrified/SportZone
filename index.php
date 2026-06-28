@@ -34,12 +34,12 @@ $wishIds = get_wishlist_ids($conn);
         <div class="home-cats-grid">
             <?php while ($cat = $categories->fetch_assoc()): ?>
                 <a href="products.php?category=<?= sanitize($cat['slug']) ?>" class="cat-card">
-                    <span class="cat-icon"><?= icon('cat-' . $cat['slug'] . '.png', $cat['icon'], $cat['name']) ?></span>
+                    <span class="cat-icon"><?= icon('cat-' . $cat['slug'] . '.svg', $cat['icon'], $cat['name']) ?></span>
                     <span><?= sanitize($cat['name']) ?></span>
                 </a>
             <?php endwhile; ?>
             <a href="products.php?sort=newest" class="cat-card">
-                <span class="cat-icon"><?= icon('cat-new.png', '✨', 'New Arrivals') ?></span>
+                <span class="cat-icon"><?= icon('cat-new.svg', '✨', 'New Arrivals') ?></span>
                 <span>New Arrivals</span>
             </a>
         </div>

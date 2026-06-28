@@ -162,30 +162,30 @@ INSERT INTO categories (name, slug, icon) VALUES
 -- products (image column points to the SVG product tile in assets/images/products/)
 INSERT INTO products (category_id, name, description, brand, price, stock, sizes, image) VALUES
 -- Football
-(1,'Match Football','Official size 5 match ball with a durable stitched casing and good shape retention.','Nike',89.90,40,NULL,'football-ball.jpg'),
-(1,'Shin Guards','Lightweight shin guards with a hard outer shell and ankle protection.','Adidas',35.00,60,'S,M,L','football-shin-guards.jpg'),
-(1,'Goalkeeper Gloves','Latex palm goalkeeper gloves with finger support and a snug wrist strap.','Nike',65.00,30,'8,9,10','football-gloves.jpg'),
-(1,'Football Boots','Firm ground boots with moulded studs for grip on natural grass pitches.','Puma',159.00,28,'7,8,9,10,11','football-boots.jpg'),
+(1,'Match Football','Official size 5 match ball with a durable stitched casing and good shape retention.','Nike',89.90,40,NULL,'football-ball.png'),
+(1,'Shin Guards','Lightweight shin guards with a hard outer shell and ankle protection.','Adidas',35.00,60,'S,M,L','football-shin-guards.png'),
+(1,'Goalkeeper Gloves','Latex palm goalkeeper gloves with finger support and a snug wrist strap.','Nike',65.00,30,'8,9,10','football-gloves.png'),
+(1,'Football Boots','Firm ground boots with moulded studs for grip on natural grass pitches.','Puma',159.00,28,'7,8,9,10,11','football-boots.png'),
 -- Basketball
-(2,'Basketball','Composite leather basketball that performs well on indoor and outdoor courts.','Spalding',75.00,35,NULL,'basketball-ball.jpg'),
-(2,'High-Top Shoes','High-top basketball shoes with ankle support and cushioned soles.','Nike',349.00,25,'7,8,9,10,11','basketball-shoes.jpg'),
-(2,'Basketball Jersey','Loose-fit breathable mesh jersey that keeps you cool during a game.','Under Armour',69.00,40,'S,M,L,XL','basketball-jersey.jpg'),
-(2,'Knee Pads','Padded knee sleeves that cushion against falls on the court.','McDavid',29.00,45,'S,M,L','basketball-knee-pads.jpg'),
+(2,'Basketball','Composite leather basketball that performs well on indoor and outdoor courts.','Spalding',75.00,35,NULL,'basketball-ball.png'),
+(2,'High-Top Shoes','High-top basketball shoes with ankle support and cushioned soles.','Nike',349.00,25,'7,8,9,10,11','basketball-shoes.png'),
+(2,'Basketball Jersey','Loose-fit breathable mesh jersey that keeps you cool during a game.','Under Armour',69.00,40,'S,M,L,XL','basketball-jersey.png'),
+(2,'Knee Pads','Padded knee sleeves that cushion against falls on the court.','McDavid',29.00,45,'S,M,L','basketball-knee-pads.png'),
 -- Running
-(3,'Running Shoes','Breathable mesh running shoes with responsive foam cushioning.','Adidas',120.00,50,'7,8,9,10,11,12','running-shoes.jpg'),
-(3,'Running Socks','Moisture-wicking compression running socks (pair) that reduce blisters.','Puma',19.99,100,'S,M,L','running-socks.jpg'),
-(3,'GPS Sports Watch','Tracks pace, distance and heart rate with built-in GPS.','Garmin',249.00,18,NULL,'running-watch.jpg'),
-(3,'Compression Tights','Full-length compression tights for support and warmth.','Under Armour',59.00,48,'S,M,L,XL','running-tights.jpg'),
+(3,'Running Shoes','Breathable mesh running shoes with responsive foam cushioning.','Adidas',120.00,50,'7,8,9,10,11,12','running-shoes.png'),
+(3,'Running Socks','Moisture-wicking compression running socks (pair) that reduce blisters.','Puma',19.99,100,'S,M,L','running-socks.png'),
+(3,'GPS Sports Watch','Tracks pace, distance and heart rate with built-in GPS.','Garmin',249.00,18,NULL,'running-watch.png'),
+(3,'Compression Tights','Full-length compression tights for support and warmth.','Under Armour',59.00,48,'S,M,L,XL','running-tights.png'),
 -- Gym
-(4,'Adjustable Dumbbell Set','Adjustable dumbbell pair, 2kg to 20kg per side. Space-saving design.','Reebok',450.00,15,NULL,'gym-dumbbells.jpg'),
-(4,'Yoga Mat','Extra-thick non-slip yoga mat with a carrying strap included.','Reebok',45.00,70,NULL,'gym-yoga-mat.jpg'),
-(4,'Kettlebell 12kg','Cast iron kettlebell with a wide handle and flat base.','Reebok',60.00,35,NULL,'gym-kettlebell.jpg'),
-(4,'Resistance Bands','Set of five looped bands at different resistance levels for full-body workouts.','Fit Simplify',25.00,90,NULL,'gym-bands.jpg'),
+(4,'Adjustable Dumbbell Set','Adjustable dumbbell pair, 2kg to 20kg per side. Space-saving design.','Reebok',450.00,15,NULL,'gym-dumbbells.png'),
+(4,'Yoga Mat','Extra-thick non-slip yoga mat with a carrying strap included.','Reebok',45.00,70,NULL,'gym-yoga-mat.png'),
+(4,'Kettlebell 12kg','Cast iron kettlebell with a wide handle and flat base.','Reebok',60.00,35,NULL,'gym-kettlebell.png'),
+(4,'Resistance Bands','Set of five looped bands at different resistance levels for full-body workouts.','Fit Simplify',25.00,90,NULL,'gym-bands.png'),
 -- Sportswear
-(5,'Training T-Shirt','Quick-dry training tee with breathable side panels.','Nike',55.00,80,'S,M,L,XL','sportswear-tshirt.jpg'),
-(5,'Track Jacket','Full-zip track jacket that is lightweight and water-resistant.','Adidas',149.00,30,'S,M,L,XL','sportswear-jacket.jpg'),
-(5,'Hoodie','Soft fleece-lined hoodie for warm-ups and casual wear.','Under Armour',79.00,45,'S,M,L,XL','sportswear-hoodie.jpg'),
-(5,'Sports Cap','Adjustable cap with a sweat-wicking inner band.','Nike',25.00,90,NULL,'sportswear-cap.jpg');
+(5,'Training T-Shirt','Quick-dry training tee with breathable side panels.','Nike',55.00,80,'S,M,L,XL','sportswear-tshirt.png'),
+(5,'Track Jacket','Full-zip track jacket that is lightweight and water-resistant.','Adidas',149.00,30,'S,M,L,XL','sportswear-jacket.png'),
+(5,'Hoodie','Soft fleece-lined hoodie for warm-ups and casual wear.','Under Armour',79.00,45,'S,M,L,XL','sportswear-hoodie.png'),
+(5,'Sports Cap','Adjustable cap with a sweat-wicking inner band.','Nike',25.00,90,NULL,'sportswear-cap.png');
 
 
 -- sample promo codes
